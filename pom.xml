@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>software12</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.target>23</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.1-jre</version> <!-- Or a compatible version -->
+        </dependency>
+        <dependency>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs</artifactId>
+            <version>4.7.3</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <!-- Checkstyle Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal> <!-- Run Checkstyle during the validate phase -->
+                        </goals>
+                        <phase>validate</phase> <!-- Checkstyle will run early in the lifecycle -->
+                    </execution>
+                </executions>
+                <configuration>
+                    <configLocation>google_checks.xml</configLocation> <!-- Path to Checkstyle config -->
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                        <version>30.1-jre</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <!-- SpotBugs Plugin -->
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.7.3.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>spotbugs</goal> <!-- Run SpotBugs during the verify phase -->
+                        </goals>
+                        <phase>verify</phase> <!-- SpotBugs runs after compilation and before packaging -->
+                    </execution>
+                </executions>
+                <configuration>
+                    <effort>Min</effort> <!-- Max effort for analysis -->
+                    <threshold>Low</threshold> <!-- Threshold for severity -->
+                </configuration>
+            </plugin>
+
+            <!-- Javadoc Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>javadoc</goal> <!-- Generate Javadocs during the site phase -->
+                        </goals>
+                        <phase>site</phase> <!-- Javadoc runs during the site phase for documentation generation -->
+                    </execution>
+                </executions>
+                <configuration>
+                    <source>17</source> <!-- Java version (adjust if necessary) -->
+                    <encoding>UTF-8</encoding>
+                    <show>public</show> <!-- Only include public methods/classes -->
+                    <failOnError>false</failOnError> <!-- Don't fail if Javadoc generation has issues -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>30.1-jre</version> <!-- Ensure this version is compatible with Checkstyle -->
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+
+
+
+
+</project>
