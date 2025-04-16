@@ -16,26 +16,33 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up JDK 23
+      # Use AdoptOpenJDK or Zulu OpenJDK to set up Java 23
+      - name: Set up JDK 23 (AdoptOpenJDK)
         uses: actions/setup-java@v3
         with:
-          java-version: '23'
-          distribution: 'openjdk' 
+          java-version: '23' 
+          distribution: 'adoptopenjdk'  
 
+      # Build the project with Maven
       - name: Build with Maven
         run: mvn clean install
 
+      # Run tests using Maven
       - name: Run tests
         run: mvn test
 
+      # Run Checkstyle
       - name: Run Checkstyle
         run: mvn checkstyle:check
 
+      # Run SpotBugs
       - name: Run SpotBugs
         run: mvn spotbugs:check
 
+      # Generate Javadoc
       - name: Generate Javadoc
         run: mvn javadoc:javadoc
 
+      # Upload generated Javadoc documentation to GitHub Pages
       - name: Upload documentation to GitHub Pages
         run: mvn javadoc:aggregate
