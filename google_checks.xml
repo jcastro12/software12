@@ -52,8 +52,6 @@
              value="^package.*|^import.*|href\s*=\s*&quot;[^&quot;]*&quot;|http://|https://|ftp://"/>
   </module>
 
-      <property name="tokens" value="PACKAGE_DEF, IMPORT, STATIC_IMPORT"/>
-    </module>
     <module name="NeedBraces">
       <property name="tokens"
                value="LITERAL_DO, LITERAL_ELSE, LITERAL_FOR, LITERAL_IF, LITERAL_WHILE"/>
