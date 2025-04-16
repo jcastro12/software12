@@ -64,16 +64,8 @@
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>4.7.3.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>spotbugs</goal> <!-- Run SpotBugs during the verify phase -->
-                        </goals>
-                        <phase>verify</phase> <!-- SpotBugs runs after compilation and before packaging -->
-                    </execution>
-                </executions>
                 <configuration>
-                    <effort>Min</effort> <!-- Max effort for analysis -->
+                    <effort>Max</effort> <!-- Max effort for analysis -->
                     <threshold>Low</threshold> <!-- Threshold for severity -->
                 </configuration>
             </plugin>
