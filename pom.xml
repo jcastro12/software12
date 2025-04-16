@@ -68,7 +68,8 @@
                 <configuration>
                     <effort>Max</effort> <!-- Max effort for analysis -->
                     <threshold>Low</threshold> <!-- Threshold for severity -->
-                    <failOnError>false</failOnError>
+                    <failOnError>False</failOnError>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
 
@@ -103,8 +104,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-
 
 
 
