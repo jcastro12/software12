@@ -52,10 +52,6 @@
              value="^package.*|^import.*|href\s*=\s*&quot;[^&quot;]*&quot;|http://|https://|ftp://"/>
   </module>
 
-    <module name="NeedBraces">
-      <property name="tokens"
-               value="LITERAL_DO, LITERAL_ELSE, LITERAL_FOR, LITERAL_IF, LITERAL_WHILE"/>
-    </module>
     <module name="LeftCurly">
       <property name="id" value="LeftCurlyEol"/>
       <property name="tokens"
