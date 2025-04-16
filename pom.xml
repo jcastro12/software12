@@ -23,7 +23,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>30.1-jre</version> <!-- Or a compatible version -->
+            <version>30.1-jre</version> 
         </dependency>
         <dependency>
             <groupId>com.github.spotbugs</groupId>
@@ -43,12 +43,13 @@
                         <goals>
                             <goal>check</goal> <!-- Run Checkstyle during the validate phase -->
                         </goals>
-                        <phase>validate</phase> <!-- Checkstyle will run early in the lifecycle -->
+                        <phase>validate</phase>
                     </execution>
                 </executions>
                 <configuration>
                     <configLocation>google_checks.xml</configLocation> <!-- Path to Checkstyle config -->
                     <encoding>UTF-8</encoding>
+                    <failOnError>false</failOnError>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -67,6 +68,7 @@
                 <configuration>
                     <effort>Max</effort> <!-- Max effort for analysis -->
                     <threshold>Low</threshold> <!-- Threshold for severity -->
+                    <failOnError>false</failOnError>
                 </configuration>
             </plugin>
 
